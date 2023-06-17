@@ -1,0 +1,25 @@
+
+#This schema defines a User type with id, name, and email fields,
+#an input type for creating and updating users, and query and mutation types for CRUD operations.
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+}
+
+input UserInput {
+    name: String!
+    email: String!
+}
+
+type Query {
+    user(id: ID!): User!
+    users: [User!]!
+}
+
+type Mutation {
+    createUser(input: UserInput!): User!
+    updateUser(id: ID!, input: UserInput!): User!
+    deleteUser(id: ID!): Boolean!
+}
